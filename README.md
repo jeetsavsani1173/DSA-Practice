@@ -40,3 +40,7 @@
 | Shell Sort | ```O(n)``` | ```O((n logn)^2)``` | ```O((n logn)^2)``` | ```O(1)``` |
 | Bucket Sort | ```O(n+k)``` | ```O(n+k)``` | ```O(n^2)``` | ```O(1)``` |
 | Radix Sort | ```O(nk)``` | ```O(nk)``` | ```O(nk)``` | ```O(n+k)``` |
+
+# DSA Practice
+
+This is the repository for C++ topic wise questions, practice questions and DSA :)
