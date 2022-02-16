@@ -23,7 +23,7 @@ public:// itarative solution
             ListNode *temp=p->next;
             p->next=q;
             q=p;
-            p=temp;
+            p=temp; 
         }
         
         return q;
