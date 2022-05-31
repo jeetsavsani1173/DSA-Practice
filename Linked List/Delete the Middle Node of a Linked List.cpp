@@ -33,3 +33,23 @@ public:
         return head;
     }
 };
+
+// second solution 
+// constant space and only one traversal
+class Solution {
+public:
+    
+    ListNode* deleteMiddle(ListNode* head) {
+        if(head==NULL || head->next==NULL) return NULL;
+        ListNode* slow=head;
+        ListNode* fast=head;
+        
+        while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next->next;
+            if(fast!=NULL && fast->next!=NULL)
+                slow=slow->next;
+        }
+        slow->next=slow->next->next;
+        return head;
+    }
+};
