@@ -67,3 +67,30 @@ public:
         return list_head;
     }
 };
+
+
+// second solution
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* dummy=new ListNode(-1);
+        ListNode* curr=head;
+        ListNode* tail=dummy;
+        
+        while(head!=NULL){
+            if(head->next==NULL || head->val!=head->next->val){
+                tail->next=head;
+                tail=tail->next;
+                head=head->next;
+                curr=head;
+            }else{
+                while(curr!=NULL && curr->val==head->val)
+                    curr=curr->next;
+                head=curr;
+            }
+        }
+        
+        tail->next=NULL;
+        return dummy->next;
+    }
+};
