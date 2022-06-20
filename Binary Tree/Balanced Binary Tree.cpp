@@ -13,7 +13,7 @@
  */
 class Solution {
 public: // TC:O(N) SP:O(N)
-    // if trre is balanced than function return(Height of a trre) othervise it will return(-1).
+    // if tree is balanced than function return(Height of a trre) othervise it will return(-1).
     int dfsHeight(TreeNode* root)
     {
         if(root==NULL)
@@ -37,7 +37,28 @@ public: // TC:O(N) SP:O(N)
     }
 };
 
-//second solution
+// second solution
+class Solution {
+public: // using rerooting Technique Tc : O(N) pair<int,bool> = pair<height,isbalance>
+    pair<int,bool> helper(TreeNode* root)
+    {
+        if(root==NULL) return {0,true};
+        pair<int,bool> left=helper(root->left);
+        pair<int,bool> right=helper(root->right); 
+        
+        pair<int,bool> rres;
+        rres.second=(abs(left.first-right.first)<2 && left.second && right.second);
+        rres.first=1+max(left.first,right.first);
+        
+        return rres;
+    }
+    bool isBalanced(TreeNode* root) {
+        pair<int,bool> ans=helper(root);
+        return ans.second;
+    }
+};
+
+//third solution
 
 class Solution {
 public: // TC:O(N^2) SP:O(N)
