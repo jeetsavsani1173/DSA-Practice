@@ -27,3 +27,24 @@ public:
         return (node->val + max(left,right));
     }
 };
+
+// second solution
+class Solution {
+public:
+    int ans;
+    int helper(TreeNode* root)
+    {
+        if(root==NULL) return 0;
+        int lsum=helper(root->left);
+        int rsum=helper(root->right);
+        
+        ans=max(ans,lsum+rsum+(root->val));
+        
+        return max(0,(root->val)+max(lsum,rsum));
+    }
+    int maxPathSum(TreeNode* root) {
+        ans=INT_MIN;
+        helper(root);
+        return ans;
+    }
+};
